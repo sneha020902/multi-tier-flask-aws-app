@@ -87,7 +87,7 @@ Access to:
 
 /users — View all users in the DB
 
-Screenshots added:
+Screenshots I added in images folder:
 1- EC2 instance (Flask backend)
 2- RDS database (sneha-db)
 3- frontend
