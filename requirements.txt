@@ -1,0 +1,7 @@
+Create this with:
+
+pip freeze > requirements.txt
+Or manually add:
+
+Flask
+pymysql
