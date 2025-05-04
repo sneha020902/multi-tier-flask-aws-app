@@ -92,7 +92,9 @@ Screenshots added:
 2- RDS database (sneha-db)
 3- frontend
 4- S3 bucket to store data of users
-5  I added a user with it's name and email address
+5- I added a user with it's name and email address
+6- Made frontend a littlebit readable.
+
 🧭 Roadmap Summary
 Step	Description
 ✅ 1	Created RDS MySQL DB and table
@@ -111,17 +113,13 @@ For real deployment, use environment variables or AWS Secrets Manager.
 👩‍💻 Author
 Sneha Agrawal
 Cloud & DevOps Enthusiast | Passionate about full-stack projects
-🌐 GitHub: github.com/YOUR_USERNAME
+🌐 GitHub: github.com/sneha020902
+Linkedin:
 
 💡 Future Enhancements
 Add form validation
-
 Use SQLAlchemy instead of raw SQL
 
 Dockerize the Flask app
-
 Host with domain + HTTPS using AWS Route 53 + ACM
-
-📌 License
-
-
+ALL THE BEST!!
