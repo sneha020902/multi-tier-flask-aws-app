@@ -114,7 +114,7 @@ For real deployment, use environment variables or AWS Secrets Manager.
 Sneha Agrawal
 Cloud & DevOps Enthusiast | Passionate about full-stack projects
 🌐 GitHub: github.com/sneha020902
-Linkedin:
+Linkedin:https://www.linkedin.com/in/-snehaagrawal
 
 💡 Future Enhancements
 Add form validation
