@@ -87,6 +87,12 @@ Access to:
 
 /users — View all users in the DB
 
+Screenshots added:
+1- EC2 instance (Flask backend)
+2- RDS database (sneha-db)
+3- frontend
+4- S3 bucket to store data of users
+5  I added a user with it's name and email address
 🧭 Roadmap Summary
 Step	Description
 ✅ 1	Created RDS MySQL DB and table
