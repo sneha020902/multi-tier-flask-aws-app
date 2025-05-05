@@ -33,17 +33,6 @@ To build a scalable, cloud-hosted multi-tier architecture where:
 
 ---
 
-## 🗂️ Folder Structure
-multi-tier-flask-aws-app/
-├── app.py # Flask application
-├── config.py # Database credentials (do NOT expose in production)
-├── requirements.txt # Python dependencies
-├── templates/
-│ ├── form.html # HTML form to add user
-│ └── users.html # List of users
-├── .gitignore # Ignore Python cache files
-└── README.md # This documentation
-
 ## 🔧 Setup Instructions
 
 ### 1. Configure RDS (MySQL)
