@@ -1,114 +1,139 @@
-# 🌐 Multi-Tier Flask Web Application on AWS (Free Tier)
+# 🌐 Multi-Tier Flask Web Application on AWS
 
-This project is a complete **multi-tier web application** built using:
+> A full-stack, cloud-deployed web application built with a proper 3-tier architecture — frontend, backend, and database — all running on AWS.
 
-- **Frontend**: HTML form via Flask Jinja templates
-- **Backend**: Python (Flask)
-- **Database**: Amazon RDS (MySQL)
-- **Hosting**: AWS EC2 instance
-- **Storage/Static Hosting**: AWS S3 (Optional UI/Docs)
-- **Deployment**: Publicly accessible via EC2 Public IP
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white)
+![AWS EC2](https://img.shields.io/badge/AWS_EC2-FF9900?style=flat-square&logo=amazonec2&logoColor=white)
+![Amazon RDS](https://img.shields.io/badge/Amazon_RDS-527FFF?style=flat-square&logo=amazonrds&logoColor=white)
 
 ---
 
-## 🚀 Project Objective
+## 🧩 The Problem
 
-To build a scalable, cloud-hosted multi-tier architecture where:
-- Users submit a form (name + email) through a web page
-- Data is processed in real-time by a Flask backend
-- Data is stored and retrieved from an Amazon RDS (MySQL) instance
-- Hosted live on an AWS EC2 instance
+Most beginners deploy apps locally and call it done. Real cloud engineering means separating concerns — your frontend, backend, and database should be independent, scalable, and properly secured. This project replicates that pattern on AWS.
 
 ---
 
-## 🧠 Key Learnings
+## 🏗️ Architecture
 
-- 🔧 Set up an EC2 instance with security groups, Python, and Flask
-- 🔐 Created a secure MySQL database on Amazon RDS and configured user access
-- 🧪 Tested RDS connection from EC2 using PyMySQL
-- 🧱 Built Flask backend (routes, templates, DB integration)
-- 🎨 Designed simple frontend using Jinja2 + HTML forms
-- 🌍 Made app live using EC2 public IP + port 5000
-- 🛠️ Debugged MySQL connection errors, port issues, and tested end-to-end flow
+```
+ User Browser
+      │
+      ▼
+ AWS EC2 (Ubuntu)
+ └── Flask App (port 5000)
+      ├── Jinja2 HTML Templates (Frontend)
+      ├── Flask Routes (Backend Logic)
+      └── PyMySQL ──────────────────▶ Amazon RDS (MySQL)
+                                          └── sneha_db.users table
+```
+
+**3 Tiers:**
+| Tier | Technology | Where |
+|---|---|---|
+| Frontend | HTML + Jinja2 Templates | EC2 |
+| Backend | Python + Flask | EC2 |
+| Database | MySQL via PyMySQL | Amazon RDS |
 
 ---
 
-## 🔧 Setup Instructions
+## 🛠️ Tech Stack
 
-### 1. Configure RDS (MySQL)
+| Tool | Purpose |
+|---|---|
+| Python & Flask | Backend web framework |
+| Jinja2 | Server-side HTML templating |
+| Amazon EC2 (Ubuntu) | App server in the cloud |
+| Amazon RDS (MySQL) | Managed relational database |
+| PyMySQL | Python → MySQL connector |
+| AWS Security Groups | Network access control |
 
-- Created MySQL DB instance via **Amazon RDS**
-- DB Identifier: `sneha-db`
-- Endpoint: `sneha-db.cl0m8aa8o62s.ap-south-1.rds.amazonaws.com`
-- Username: `admin`
-- Password: `password54321`
-- Created database: `sneha_db` and table `users`
+---
+
+## ✨ Features
+
+- Submit a user form (name + email) via a web page
+- Flask backend processes and validates the input
+- Data is stored in an **Amazon RDS MySQL** database
+- View all submitted users at `/users`
+- Deployed live on an EC2 public IP
+
+---
+
+## 🚀 How to Run It Yourself
+
+### Prerequisites
+- AWS account (Free Tier works)
+- EC2 instance (Ubuntu 22.04)
+- Amazon RDS MySQL instance
+
+### Step 1 — Set Up RDS (MySQL)
+Create a MySQL DB instance in Amazon RDS, then run:
 
 ```sql
+CREATE DATABASE sneha_db;
+USE sneha_db;
 CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    email VARCHAR(100)
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(100)
 );
-### 2. Setup EC2 (Ubuntu)
-Launched EC2 instance (Amazon Linux/Ubuntu)
+```
 
-Installed Python, pip, Flask, pymysql:
+### Step 2 — Set Up EC2
+```bash
+ssh -i your-key.pem ubuntu@your-ec2-public-ip
+sudo apt update && sudo apt install -y python3 python3-pip git
+pip3 install flask pymysql
+```
 
-sudo yum update -y
-sudo yum install python3 git -y
-pip3 install Flask pymysql
-Allowed port 5000 in Security Groups for web access
+### Step 3 — Configure the App
+Edit `config.py` with your RDS credentials:
+```python
+DB_HOST = 'your-rds-endpoint'
+DB_USER = 'your-username'
+DB_PASSWORD = 'your-password'
+DB_NAME = 'sneha_db'
+```
+> ⚠️ **Never push real credentials to GitHub.** Use environment variables or AWS Secrets Manager in production.
 
-### 3. Flask App
-app.py(file already added)
+### Step 4 — Run the App
+```bash
+git clone https://github.com/sneha020902/multi-tier-flask-aws-app.git
+cd multi-tier-flask-aws-app
+python3 app.py
+```
 
-### 4. HTML Templates
-form.html(file already added)
+### Step 5 — Access the App
+Open your browser at `http://your-ec2-public-ip:5000`
+Make sure port **5000** is open in your EC2 Security Group.
 
-### Final Output
-Deployed URL (via EC2 Public IP):
+---
 
-http://13.126.202.53:5000
-Access to:
+## 💡 What I Learned
 
-/ — Add new user
+- How to design and deploy a proper **3-tier architecture** on AWS
+- Configuring and connecting to **Amazon RDS** from an EC2 instance
+- Using **PyMySQL** to run queries from Python
+- Managing **AWS Security Groups** to allow specific port traffic
+- Debugging real cloud issues: DB connection timeouts, port conflicts, IAM permissions
+- Why **never to hardcode credentials** and how to use config files safely
 
-/users — View all users in the DB
+---
 
-Screenshots I added in images folder:
-1- EC2 instance (Flask backend)
-2- RDS database (sneha-db)
-3- frontend
-4- S3 bucket to store data of users
-5- I added a user with it's name and email address
-6- Made frontend a littlebit readable.
+## 🔮 Future Improvements
 
-🧭 Roadmap Summary
-Step	Description
-✅ 1	Created RDS MySQL DB and table
-✅ 2	Launched EC2, installed Python, Flask
-✅ 3	Built app.py Flask routes
-✅ 4	Connected to RDS using PyMySQL
-✅ 5	Built frontend with HTML + Jinja
-✅ 6	Made app live via EC2 public IP
-✅ 7	Debugged DB access, 5000 port issues
+- [ ] Dockerize the Flask app for consistent deployments
+- [ ] Replace raw SQL with **SQLAlchemy ORM**
+- [ ] Add form validation and error handling
+- [ ] Set up **HTTPS** with AWS ACM + Load Balancer
+- [ ] Use **AWS Secrets Manager** for credential management
+- [ ] Add a **CI/CD pipeline** with GitHub Actions
 
-🔐 Note
-Do NOT push your real DB credentials (config.py) to GitHub in production.
+---
 
-For real deployment, use environment variables or AWS Secrets Manager.
+## 👩‍💻 Author
 
-👩‍💻 Author
-Sneha Agrawal
-Cloud & DevOps Enthusiast | Passionate about full-stack projects
-🌐 GitHub: github.com/sneha020902
-Linkedin:https://www.linkedin.com/in/-snehaagrawal
-
-💡 Future Enhancements
-Add form validation
-Use SQLAlchemy instead of raw SQL
-
-Dockerize the Flask app
-Host with domain + HTTPS using AWS Route 53 + ACM
-ALL THE BEST!!
+**Sneha Agrawal** — Aspiring Cloud & DevOps Engineer
+🔗 [LinkedIn](https://www.linkedin.com/in/-snehaagrawal/) · [GitHub](https://github.com/sneha020902) · [Portfolio](https://sneha020902.github.io)
