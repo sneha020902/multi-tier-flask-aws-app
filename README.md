@@ -1,4 +1,4 @@
-# 🌐 Multi-Tier Flask Web Application on AWS
+# Multi-Tier Flask Web Application on AWS
 
 > A full-stack, cloud-deployed web application built with a proper 3-tier architecture — frontend, backend, and database — all running on AWS.
 
@@ -9,13 +9,13 @@
 
 ---
 
-## 🧩 The Problem
+## The Problem
 
 Most beginners deploy apps locally and call it done. Real cloud engineering means separating concerns — your frontend, backend, and database should be independent, scalable, and properly secured. This project replicates that pattern on AWS.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
  User Browser
@@ -38,7 +38,7 @@ Most beginners deploy apps locally and call it done. Real cloud engineering mean
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Tool | Purpose |
 |---|---|
@@ -51,17 +51,17 @@ Most beginners deploy apps locally and call it done. Real cloud engineering mean
 
 ---
 
-## ✨ Features
+## Features
 
 - Submit a user form (name + email) via a web page
 - Flask backend processes and validates the input
 - Data is stored in an **Amazon RDS MySQL** database
 - View all submitted users at `/users`
-- Deployed live on an EC2 public IP
+- Successfully deployed and tested on AWS EC2 — EC2 instance stopped after testing to avoid Free Tier charges
 
 ---
 
-## 🚀 How to Run It Yourself
+## How to Run It Yourself
 
 ### Prerequisites
 - AWS account (Free Tier works)
@@ -96,7 +96,7 @@ DB_USER = 'your-username'
 DB_PASSWORD = 'your-password'
 DB_NAME = 'sneha_db'
 ```
-> ⚠️ **Never push real credentials to GitHub.** Use environment variables or AWS Secrets Manager in production.
+> **Never push real credentials to GitHub.** Use environment variables or AWS Secrets Manager in production.
 
 ### Step 4 — Run the App
 ```bash
@@ -111,7 +111,7 @@ Make sure port **5000** is open in your EC2 Security Group.
 
 ---
 
-## 💡 What I Learned
+## What I Learned
 
 - How to design and deploy a proper **3-tier architecture** on AWS
 - Configuring and connecting to **Amazon RDS** from an EC2 instance
@@ -122,7 +122,7 @@ Make sure port **5000** is open in your EC2 Security Group.
 
 ---
 
-## 🔮 Future Improvements
+## Future Improvements
 
 - [ ] Dockerize the Flask app for consistent deployments
 - [ ] Replace raw SQL with **SQLAlchemy ORM**
@@ -133,7 +133,7 @@ Make sure port **5000** is open in your EC2 Security Group.
 
 ---
 
-## 👩‍💻 Author
+## Author
 
 **Sneha Agrawal** — Aspiring Cloud & DevOps Engineer
 🔗 [LinkedIn](https://www.linkedin.com/in/-snehaagrawal/) · [GitHub](https://github.com/sneha020902) · [Portfolio](https://sneha020902.github.io)
