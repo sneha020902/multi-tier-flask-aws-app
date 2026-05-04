@@ -60,6 +60,21 @@ Most beginners deploy apps locally and call it done. Real cloud engineering mean
 - Successfully deployed and tested on AWS EC2 — EC2 instance stopped after testing to avoid Free Tier charges
 
 ---
+## 📸 Screenshots
+
+### Web Form (running on EC2)
+![Web Form](screenshots/Screenshot%201%20%E2%80%94%20The%20web%20form.png)
+
+### Users Stored in RDS Database
+![Users List](screenshots/Screenshot%202%20%E2%80%94%20After%20submitting.png)
+
+### AWS EC2 Instance (Running)
+![EC2 Console](screenshots/Screenshot%203%20%E2%80%94%20EC2%20Console.png)
+
+### Amazon RDS Database (Available)
+![RDS Console](screenshots/Screenshot%204%20%E2%80%94%20RDS%20Console.png)
+
+---
 
 ## How to Run It Yourself
 
